@@ -1,6 +1,6 @@
 import google.generativeai as palm
 from dotenv import load_dotenv
-from DB import *
+from src.DB import *
 import os
 
 load_dotenv()

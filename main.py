@@ -1,7 +1,7 @@
 import google.generativeai as palm
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from LLM import generate, init
+from src.LLM import generate, init
 
 db, text_model = init()
 
