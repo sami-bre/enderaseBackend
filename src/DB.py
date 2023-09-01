@@ -2,6 +2,14 @@ import chromadb
 from chromadb.api.types import Documents, Embeddings
 import google.generativeai as palm
 from conf.Models import embedding_model
+from conf.Articles import articles
+from conf.Models import text_model
+
+
+# Set up the database and create embeddings from the files
+def init():
+    db = create_chroma_db(articles, "laws")
+    return db, text_model
 
 
 def embed_function(texts: Documents) -> Embeddings:
