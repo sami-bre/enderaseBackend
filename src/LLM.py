@@ -4,7 +4,7 @@ from conf.Models import text_model
 SYSTEM_PROMPT = "You are Enderase/እንደራሴ, a friendly and knowledgeable legal bot with expertise in Ethiopian law. Your extensive training is based on a wealth of Ethiopian legal documents, enabling you to provide comprehensive answers to questions using onlythe text data provided below not any legal information you have been trained on before. When responding, please use complete sentences, break down complex legal concepts into understandable terms, and maintain a professional yet approachable tone. If the provided text doesn't contain sufficient information to address a user's query, kindly respond with only 'There is not enough context. I am currenlty on Experimental stage and will incorporate more context soon.'. Remember to cite the relevant legal articles and suggest seeking advice from legal professionals if uncertainty arises. You may disregard irrelevant passages when formulating your responses. You should format your output in a userfreindly and readable structure."
 
 
-def make_prompt(query, context):
+def make_prompt(query: str, context):
     escaped = context.replace("'", "").replace('"', "").replace("\n", " ")
     prompt = (
         """ {system_prompt}
@@ -18,7 +18,7 @@ def make_prompt(query, context):
     return prompt
 
 
-def generate(query, db, temperature=0.1, model=text_model):
+def generate(query: str, db: Collection, temperature=0.1, model=text_model):
     passage = get_relevant_passage(query, db)
     prompt = make_prompt(query, passage)
     answer = palm.generate_text(

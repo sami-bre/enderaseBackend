@@ -1,11 +1,12 @@
 import os
 from docx import Document
+from docx.text.paragraph import Paragraph
 
 
 # This function is used to group a file that has a proper headaing and paragraph style to separate chunks and returns them as an array
-def chunk_articles(paragraphs):
+def chunk_articles(paragraphs: [Paragraph]):
     # Function to determin a heading or not
-    def is_heading(paragraph):
+    def is_heading(paragraph: Paragraph):
         # Define your heading criteria here, e.g., based on font size or style
         return paragraph.style.name.startswith("Heading")
 
@@ -57,7 +58,7 @@ def read_document(filepath: str):
 
 
 # Get all the articles stored in the docs directory and return them as an array
-def chunk_all_articles(docsPath="docs"):
+def chunk_all_articles(docsPath: str = "docs"):
     laws = []
 
     # Navigating to the docs folder to get the files stored in there
