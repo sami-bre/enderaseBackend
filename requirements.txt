@@ -1,3 +1,4 @@
+chromadb==0.4.6
 google-ai-generativelanguage==0.2.0
 google-api-core==2.11.1
 google-auth==2.22.0
