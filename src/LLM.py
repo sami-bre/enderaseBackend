@@ -349,7 +349,8 @@ def make_prompt(query, context):
 
 
 def generate(model, query, db, temperature=0.1):
-    prompt = make_prompt(query, context="")
+    passage = get_relevant_passage(query, db)
+    prompt = make_prompt(query, passage)
     answer = palm.generate_text(
         prompt=prompt,
         model=model,
@@ -358,6 +359,6 @@ def generate(model, query, db, temperature=0.1):
         max_output_tokens=1000,
     )
     if len(answer.candidates) > 0:
-        return answer.candidates[0]["output"]
+        return answer.candidates[0]["output"], passage
     else:
-        return "Server encountered some error. Retry in just a moment"
+        return "Server encountered some error. Retry in just a moment", ""
