@@ -325,7 +325,7 @@ articles = [
 
 # Selecting the first and only text generation model available in palm
 text_model = [
-    m for m in palm.list_models() if "generateText" in m.supported_generation_models
+    m for m in palm.list_models() if "generateText" in m.supported_generation_methods
 ][0]
 
 
