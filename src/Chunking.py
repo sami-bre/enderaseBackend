@@ -1,6 +1,4 @@
 from docx import Document
-
-# from src.DB import *
 import os
 
 

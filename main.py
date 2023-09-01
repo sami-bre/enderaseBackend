@@ -1,4 +1,3 @@
-import google.generativeai as palm
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from src.LLM import generate, init
