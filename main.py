@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 from src.LLM import generate, init
 
-db, text_model = init()
+db = init()
 
 port_no = 5000
 
@@ -18,7 +18,7 @@ def generate_response():
     elif request.method == "POST":
         query = request.json["query"]
 
-        response, passage = generate(text_model, query, db)
+        response, passage = generate(query, db)
 
         data = {"Response": response, "Context": passage}
 
