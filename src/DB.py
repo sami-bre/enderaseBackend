@@ -25,14 +25,13 @@ def embed_function(texts: Documents) -> Embeddings:
 def create_chroma_db(documents, name):
     chroma_client = chromadb.Client()
     db = chroma_client.create_collection(name=name, embedding_function=embed_function)
-    for i, d in enumerate(documents, start=1):
-        db.add(documents=d, ids=str(i))
+    add_to_collection(documents, db)
     return db
 
 
 # Function to add to the chroma database collection after the database is setup given the documents array and database
-def add_to_collection(documents, db):
-    for i, d in enumerate(documents, start=11):
+def add_to_collection(documents, db, startID=1):
+    for i, d in enumerate(documents, start=startID):
         db.add(documents=d, ids=str(i))
         print(f"Added embedding with ID: {i}")
     print("Finished adding embeddings")
