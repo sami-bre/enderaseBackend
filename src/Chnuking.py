@@ -51,10 +51,4 @@ def read_document(filepath: str):
 
         documents = cited_docs
 
-        # This is only for debugging purpose only
-        # with open("temp.txt", "+a") as file:
-        #     for document in documents:
-        #         file.write(f"{document} \n\n*****\n\n")
-
-    # print(len(documents))  # For debugging only
     return documents
