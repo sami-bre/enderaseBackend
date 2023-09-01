@@ -1,5 +1,5 @@
-from docx import Document
 import os
+from docx import Document
 
 
 # This function is used to group a file that has a proper headaing and paragraph style to separate chunks and returns them as an array

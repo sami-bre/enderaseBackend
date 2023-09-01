@@ -1,8 +1,8 @@
 import chromadb
-from chromadb.api.types import Documents, Embeddings
 import google.generativeai as palm
-from conf.Models import embedding_model
 from conf.Articles import articles
+from conf.Models import embedding_model
+from chromadb.api.types import Documents, Embeddings
 
 
 # Set up the database and create embeddings from the files
