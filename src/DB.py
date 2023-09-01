@@ -27,3 +27,8 @@ def create_chroma_db(documents, name):
     for i, d in enumerate(documents, start=1):
         db.add(documents=d, ids=str(i))
     return db
+
+
+def get_relevant_passage(query, db):
+    passage = db.query(query_texts=[query], n_results=1)["documents"][0][0]
+    return passage
