@@ -20,6 +20,13 @@ def create_chroma_db(documents, name):
     return db
 
 
+def add_to_collection(documents, db):
+    for i, d in enumerate(documents, start=11):
+        db.add(documents=d, ids=str(i))
+        print(f"Added embedding with ID: {i}")
+    print("Finished adding embeddings")
+
+
 def get_relevant_passage(query, db):
     passage = db.query(query_texts=[query], n_results=1)["documents"][0][0]
     return passage
