@@ -1,16 +1,7 @@
 import chromadb
 from chromadb.api.types import Documents, Embeddings
 import google.generativeai as palm
-from dotenv import load_dotenv
-import os
-
-load_dotenv()
-api_key = os.environ.get("PALM_API_KEY")
-palm.configure(api_key=api_key)
-
-embedding_model = [
-    m for m in palm.list_models() if "embedText" in m.supported_generation_methods
-][0]
+from conf.Models import embedding_model
 
 
 def embed_function(texts: Documents) -> Embeddings:
