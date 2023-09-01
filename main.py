@@ -4,7 +4,7 @@ from src.LLM import generate, init
 
 db = init()
 
-port_no = 5000
+port_no = 10000
 
 app = Flask(__name__)
 CORS(app)
